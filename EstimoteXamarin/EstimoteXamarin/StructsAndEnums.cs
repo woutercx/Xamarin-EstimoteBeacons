@@ -2,7 +2,6 @@ using System;
 
 namespace EstimoteXamarin
 {
-
 	public enum ESTBeaconPower 
 	{
 		Level1 = -30,

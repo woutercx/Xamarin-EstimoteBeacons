@@ -3,11 +3,12 @@
   <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
-        <State expanded="True" selected="True">
+        <State expanded="True">
           <Node name="EstimoteXamarin" expanded="True">
             <Node name="binding" expanded="True">
               <Node name="libEstimoteSDK7.a" expanded="True" />
             </Node>
+            <Node name="StructsAndEnums.cs" selected="True" />
           </Node>
         </State>
       </Pad>

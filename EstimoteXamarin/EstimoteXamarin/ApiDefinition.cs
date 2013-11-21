@@ -113,18 +113,19 @@ namespace EstimoteXamarin
 //		void UpdateBeaconFirmwareWithProgress (ESTStringCompletionBlock progress, ESTCompletionBlock completion);
 	}
 
-
+	//ESTBeaconMajorValue: represents the most significant value in a beacon.
+	//ESTBeaconMinorValue: represents the least significant value in a beacon.
 	[BaseType (typeof (CLBeaconRegion))]
 	public partial interface ESTBeaconRegion {
 
 		[Export ("initRegionWithIdentifier:")]
 		IntPtr Constructor (string identifier);
 
-//		[Export ("initRegionWithMajor:identifier:")]
-//		IntPtr Constructor (ESTBeaconMajorValue major, string identifier);
-//
-//		[Export ("initRegionWithMajor:minor:identifier:")]
-//		IntPtr Constructor (ESTBeaconMajorValue major, ESTBeaconMinorValue minor, string identifier);
+		[Export ("initRegionWithMajor:identifier:")]
+		IntPtr Constructor (ushort ESTBeaconMajorValue, string identifier);
+
+		[Export ("initRegionWithMajor:minor:identifier:")]
+		IntPtr Constructor (ushort ESTBeaconMajorValue, ushort ESTBeaconMinorValue, string identifier);
 	}
 	
 	[Model, BaseType (typeof (NSObject))]
@@ -187,9 +188,10 @@ namespace EstimoteXamarin
 		[Export ("requestStateForRegion:")]
 		void RequestStateForRegion (ESTBeaconRegion region);
 
-		//TODO Don't know where to get ESTBeaconMajorValue from.
-		//[Export ("startAdvertisingWithMajor:withMinor:withIdentifier:")]
-		//void StartAdvertisingWithMajor (ESTBeaconMajorValue major, ESTBeaconMinorValue minor, string identifier);
+		//ESTBeaconMajorValue: represents the most significant value in a beacon.
+		//ESTBeaconMinorValue: represents the least significant value in a beacon.
+		[Export ("startAdvertisingWithMajor:withMinor:withIdentifier:")]
+		void StartAdvertisingWithMajor (ushort ESTBeaconMajorValue, ushort ESTBeaconMinorValue, string identifier);
 
 		[Export ("stopAdvertising")]
 		void StopAdvertising ();
