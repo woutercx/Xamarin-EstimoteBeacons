@@ -8,7 +8,14 @@ using MonoTouch.CoreLocation;
 
 namespace EstimoteXamarin
 {
-	
+	//BlockCallback:
+	//http://docs.xamarin.com/guides/ios/advanced_topics/binding_objective-c/binding_types_reference_guide/
+	//Example:
+	//Objective C:
+	//https://github.com/couchbase/couchbase-lite-ios/blob/580c5f65ebda159ce5d0ce1f75adc16955a2a6ff/Source/API/CBLView.h
+	//Translated to C#:
+	//https://github.com/mono/monotouch-bindings/blob/23eaf5ff60accf6752e7f5945e1d67bc338dffe7/Couchbase/binding/ApiDefinition.cs
+
 	[Model, BaseType (typeof (NSObject))]
 	public partial interface ESTBeaconDelegate {
 
@@ -21,6 +28,11 @@ namespace EstimoteXamarin
 		[Export ("beaconDidDisconnect:withError:")]
 		void BeaconDidDisconnect (ESTBeacon beacon, NSError error);
 	}
+
+	public delegate void ESTCompletionBlock(NSError error);
+	public delegate void ESTUnsignedCompletionBlock(byte value, NSError error);
+	public delegate void ESTBoolCompletionBlock(bool value, NSError error);
+	public delegate void ESTStringCompletionBlock(NSString value, NSError error);
 
 	[BaseType (typeof (NSObject))]
 	public partial interface ESTBeacon {
@@ -76,41 +88,41 @@ namespace EstimoteXamarin
 		[Export ("disconnectBeacon")]
 		void DisconnectBeacon ();
 
-//		[Export ("readBeaconMajorWithCompletion:")]
-//		void ReadBeaconMajorWithCompletion (ESTUnsignedCompletionBlock completion);
-//
-//		[Export ("readBeaconMinorWithCompletion:")]
-//		void ReadBeaconMinorWithCompletion (ESTUnsignedCompletionBlock completion);
-//
-//		[Export ("readBeaconFrequencyWithCompletion:")]
-//		void ReadBeaconFrequencyWithCompletion (ESTUnsignedCompletionBlock completion);
-//
-//		[Export ("readBeaconPowerWithCompletion:")]
-//		void ReadBeaconPowerWithCompletion (ESTUnsignedCompletionBlock completion);
-//
-//		[Export ("readBeaconBatteryWithCompletion:")]
-//		void ReadBeaconBatteryWithCompletion (ESTUnsignedCompletionBlock completion);
-//
-//		[Export ("readBeaconFirmwareVersionWithCompletion:")]
-//		void ReadBeaconFirmwareVersionWithCompletion (ESTStringCompletionBlock completion);
-//
-//		[Export ("readBeaconHardwareVersionWithCompletion:")]
-//		void ReadBeaconHardwareVersionWithCompletion (ESTStringCompletionBlock completion);
-//
-//		[Export ("writeBeaconMajor:withCompletion:")]
-//		void WriteBeaconMajor (short major, ESTUnsignedCompletionBlock completion);
-//
-//		[Export ("writeBeaconMinor:withCompletion:")]
-//		void WriteBeaconMinor (short minor, ESTUnsignedCompletionBlock completion);
-//
-//		[Export ("writeBeaconFrequency:withCompletion:")]
-//		void WriteBeaconFrequency (short frequency, ESTUnsignedCompletionBlock completion);
-//
-//		[Export ("writeBeaconPower:withCompletion:")]
-//		void WriteBeaconPower (ESTBeaconPower power, ESTUnsignedCompletionBlock completion);
-//
-//		[Export ("updateBeaconFirmwareWithProgress:andCompletion:")]
-//		void UpdateBeaconFirmwareWithProgress (ESTStringCompletionBlock progress, ESTCompletionBlock completion);
+		[Export ("readBeaconMajorWithCompletion:")]
+		void ReadBeaconMajorWithCompletion (ESTUnsignedCompletionBlock completion);
+
+		[Export ("readBeaconMinorWithCompletion:")]
+		void ReadBeaconMinorWithCompletion (ESTUnsignedCompletionBlock completion);
+
+		[Export ("readBeaconFrequencyWithCompletion:")]
+		void ReadBeaconFrequencyWithCompletion (ESTUnsignedCompletionBlock completion);
+
+		[Export ("readBeaconPowerWithCompletion:")]
+		void ReadBeaconPowerWithCompletion (ESTUnsignedCompletionBlock completion);
+
+		[Export ("readBeaconBatteryWithCompletion:")]
+		void ReadBeaconBatteryWithCompletion (ESTUnsignedCompletionBlock completion);
+
+		[Export ("readBeaconFirmwareVersionWithCompletion:")]
+		void ReadBeaconFirmwareVersionWithCompletion (ESTStringCompletionBlock completion);
+
+		[Export ("readBeaconHardwareVersionWithCompletion:")]
+		void ReadBeaconHardwareVersionWithCompletion (ESTStringCompletionBlock completion);
+
+		[Export ("writeBeaconMajor:withCompletion:")]
+		void WriteBeaconMajor (short major, ESTUnsignedCompletionBlock completion);
+
+		[Export ("writeBeaconMinor:withCompletion:")]
+		void WriteBeaconMinor (short minor, ESTUnsignedCompletionBlock completion);
+
+		[Export ("writeBeaconFrequency:withCompletion:")]
+		void WriteBeaconFrequency (short frequency, ESTUnsignedCompletionBlock completion);
+
+		[Export ("writeBeaconPower:withCompletion:")]
+		void WriteBeaconPower (ESTBeaconPower power, ESTUnsignedCompletionBlock completion);
+
+		[Export ("updateBeaconFirmwareWithProgress:andCompletion:")]
+		void UpdateBeaconFirmwareWithProgress (ESTStringCompletionBlock progress, ESTCompletionBlock completion);
 	}
 
 	//ESTBeaconMajorValue: represents the most significant value in a beacon.
