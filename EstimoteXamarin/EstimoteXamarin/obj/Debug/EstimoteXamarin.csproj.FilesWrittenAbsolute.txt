@@ -1,0 +1,5 @@
+/Users/wouter/Ontwikkel/Xamarin-EstimoteBeacons/EstimoteXamarin/EstimoteXamarin/obj/Debug/MonoTouch,Version=v1.0.AssemblyAttribute.cs
+/Users/wouter/Ontwikkel/Xamarin-EstimoteBeacons/EstimoteXamarin/EstimoteXamarin/bin/Debug/EstimoteXamarin.dll.mdb
+/Users/wouter/Ontwikkel/Xamarin-EstimoteBeacons/EstimoteXamarin/EstimoteXamarin/bin/Debug/EstimoteXamarin.dll
+/Users/wouter/Ontwikkel/Xamarin-EstimoteBeacons/EstimoteXamarin/EstimoteXamarin/obj/Debug/EstimoteXamarin.dll
+/Users/wouter/Ontwikkel/Xamarin-EstimoteBeacons/EstimoteXamarin/EstimoteXamarin/obj/Debug/EstimoteXamarin.dll.mdb

@@ -1,0 +1,360 @@
+
+using System;
+
+using MonoTouch.Foundation;
+
+namespace EstimoteSDK {
+
+	public enum ESTBeaconPower : [unmapped: unexposed: Elaborated] {
+		Level1 = -30,
+		Level2 = -20,
+		Level3 = -16,
+		Level4 = -12,
+		Level5 = -8,
+		Level6 = -4,
+		Level7 = 0,
+		Level8 = 4
+	}
+
+	public enum ESTBeaconFirmwareState : [unmapped: unexposed: Elaborated] {
+		Boot,
+		App
+	}
+
+	[Model, BaseType (typeof (NSObject))]
+	public partial interface ESTBeaconDelegate {
+
+		[Export ("beaconConnectionDidFail:withError:")]
+		void WithError (ESTBeacon beacon, NSError error);
+
+		[Export ("beaconConnectionDidSucceeded:")]
+		void  (ESTBeacon beacon);
+
+		[Export ("beaconDidDisconnect:withError:")]
+		void WithError (ESTBeacon beacon, NSError error);
+	}
+
+	[BaseType (typeof (NSObject))]
+	public partial interface ESTBeacon {
+
+		[Export ("firmwareState")]
+		ESTBeaconFirmwareState FirmwareState { get; set; }
+
+		[Export ("delegate")]
+		ESTBeaconDelegate Delegate { get; set; }
+
+		[Export ("peripheral", ArgumentSemantic.Retain)]
+		CBPeripheral Peripheral { get; set; }
+
+		[Export ("macAddress", ArgumentSemantic.Retain)]
+		string MacAddress { get; set; }
+
+		[Export ("measuredPower", ArgumentSemantic.Retain)]
+		NSNumber MeasuredPower { get; set; }
+
+		[Export ("major", ArgumentSemantic.Retain)]
+		NSNumber Major { get; set; }
+
+		[Export ("minor", ArgumentSemantic.Retain)]
+		NSNumber Minor { get; set; }
+
+		[Export ("rssi", ArgumentSemantic.Retain)]
+		NSNumber Rssi { get; set; }
+
+		[Export ("power", ArgumentSemantic.Retain)]
+		NSNumber Power { get; set; }
+
+		[Export ("frequency", ArgumentSemantic.Retain)]
+		NSNumber Frequency { get; set; }
+
+		[Export ("batteryLevel", ArgumentSemantic.Retain)]
+		NSNumber BatteryLevel { get; set; }
+
+		[Export ("hardwareVersion", ArgumentSemantic.Retain)]
+		string HardwareVersion { get; set; }
+
+		[Export ("firmwareVersion", ArgumentSemantic.Retain)]
+		string FirmwareVersion { get; set; }
+
+		[Export ("ibeacon", ArgumentSemantic.Retain)]
+		CLBeacon Ibeacon { get; set; }
+
+		[Export ("isConnected")]
+		bool IsConnected { get; }
+
+		[Export ("connectToBeacon")]
+		void ConnectToBeacon ();
+
+		[Export ("disconnectBeacon")]
+		void DisconnectBeacon ();
+
+		[Export ("readBeaconMajorWithCompletion:")]
+		void ReadBeaconMajorWithCompletion (ESTUnsignedCompletionBlock completion);
+
+		[Export ("readBeaconMinorWithCompletion:")]
+		void ReadBeaconMinorWithCompletion (ESTUnsignedCompletionBlock completion);
+
+		[Export ("readBeaconFrequencyWithCompletion:")]
+		void ReadBeaconFrequencyWithCompletion (ESTUnsignedCompletionBlock completion);
+
+		[Export ("readBeaconPowerWithCompletion:")]
+		void ReadBeaconPowerWithCompletion (ESTUnsignedCompletionBlock completion);
+
+		[Export ("readBeaconBatteryWithCompletion:")]
+		void ReadBeaconBatteryWithCompletion (ESTUnsignedCompletionBlock completion);
+
+		[Export ("readBeaconFirmwareVersionWithCompletion:")]
+		void ReadBeaconFirmwareVersionWithCompletion (ESTStringCompletionBlock completion);
+
+		[Export ("readBeaconHardwareVersionWithCompletion:")]
+		void ReadBeaconHardwareVersionWithCompletion (ESTStringCompletionBlock completion);
+
+		[Export ("writeBeaconMajor:withCompletion:")]
+		void WriteBeaconMajor (short major, ESTUnsignedCompletionBlock completion);
+
+		[Export ("writeBeaconMinor:withCompletion:")]
+		void WriteBeaconMinor (short minor, ESTUnsignedCompletionBlock completion);
+
+		[Export ("writeBeaconFrequency:withCompletion:")]
+		void WriteBeaconFrequency (short frequency, ESTUnsignedCompletionBlock completion);
+
+		[Export ("writeBeaconPower:withCompletion:")]
+		void WriteBeaconPower (ESTBeaconPower power, ESTUnsignedCompletionBlock completion);
+
+		[Export ("updateBeaconFirmwareWithProgress:andCompletion:")]
+		void UpdateBeaconFirmwareWithProgress (ESTStringCompletionBlock progress, ESTCompletionBlock completion);
+	}
+
+	public enum ESTBeaconPower : [unmapped: unexposed: Elaborated] {
+		Level1 = -30,
+		Level2 = -20,
+		Level3 = -16,
+		Level4 = -12,
+		Level5 = -8,
+		Level6 = -4,
+		Level7 = 0,
+		Level8 = 4
+	}
+
+	public enum ESTBeaconFirmwareState : [unmapped: unexposed: Elaborated] {
+		Boot,
+		App
+	}
+
+	[BaseType (typeof (CLBeaconRegion))]
+	public partial interface ESTBeaconRegion {
+
+		[Export ("initRegionWithIdentifier:")]
+		IntPtr Constructor (string identifier);
+
+		[Export ("initRegionWithMajor:identifier:")]
+		IntPtr Constructor (ESTBeaconMajorValue major, string identifier);
+
+		[Export ("initRegionWithMajor:minor:identifier:")]
+		IntPtr Constructor (ESTBeaconMajorValue major, ESTBeaconMinorValue minor, string identifier);
+	}
+
+	public enum ESTBeaconPower : [unmapped: unexposed: Elaborated] {
+		Level1 = -30,
+		Level2 = -20,
+		Level3 = -16,
+		Level4 = -12,
+		Level5 = -8,
+		Level6 = -4,
+		Level7 = 0,
+		Level8 = 4
+	}
+
+	public enum ESTBeaconFirmwareState : [unmapped: unexposed: Elaborated] {
+		Boot,
+		App
+	}
+
+	[Model, BaseType (typeof (NSObject))]
+	public partial interface ESTBeaconDelegate {
+
+		[Export ("beaconConnectionDidFail:withError:")]
+		void WithError (ESTBeacon beacon, NSError error);
+
+		[Export ("beaconConnectionDidSucceeded:")]
+		void  (ESTBeacon beacon);
+
+		[Export ("beaconDidDisconnect:withError:")]
+		void WithError (ESTBeacon beacon, NSError error);
+	}
+
+	[BaseType (typeof (NSObject))]
+	public partial interface ESTBeacon {
+
+		[Export ("firmwareState")]
+		ESTBeaconFirmwareState FirmwareState { get; set; }
+
+		[Export ("delegate")]
+		ESTBeaconDelegate Delegate { get; set; }
+
+		[Export ("peripheral", ArgumentSemantic.Retain)]
+		CBPeripheral Peripheral { get; set; }
+
+		[Export ("macAddress", ArgumentSemantic.Retain)]
+		string MacAddress { get; set; }
+
+		[Export ("measuredPower", ArgumentSemantic.Retain)]
+		NSNumber MeasuredPower { get; set; }
+
+		[Export ("major", ArgumentSemantic.Retain)]
+		NSNumber Major { get; set; }
+
+		[Export ("minor", ArgumentSemantic.Retain)]
+		NSNumber Minor { get; set; }
+
+		[Export ("rssi", ArgumentSemantic.Retain)]
+		NSNumber Rssi { get; set; }
+
+		[Export ("power", ArgumentSemantic.Retain)]
+		NSNumber Power { get; set; }
+
+		[Export ("frequency", ArgumentSemantic.Retain)]
+		NSNumber Frequency { get; set; }
+
+		[Export ("batteryLevel", ArgumentSemantic.Retain)]
+		NSNumber BatteryLevel { get; set; }
+
+		[Export ("hardwareVersion", ArgumentSemantic.Retain)]
+		string HardwareVersion { get; set; }
+
+		[Export ("firmwareVersion", ArgumentSemantic.Retain)]
+		string FirmwareVersion { get; set; }
+
+		[Export ("ibeacon", ArgumentSemantic.Retain)]
+		CLBeacon Ibeacon { get; set; }
+
+		[Export ("isConnected")]
+		bool IsConnected { get; }
+
+		[Export ("connectToBeacon")]
+		void ConnectToBeacon ();
+
+		[Export ("disconnectBeacon")]
+		void DisconnectBeacon ();
+
+		[Export ("readBeaconMajorWithCompletion:")]
+		void ReadBeaconMajorWithCompletion (ESTUnsignedCompletionBlock completion);
+
+		[Export ("readBeaconMinorWithCompletion:")]
+		void ReadBeaconMinorWithCompletion (ESTUnsignedCompletionBlock completion);
+
+		[Export ("readBeaconFrequencyWithCompletion:")]
+		void ReadBeaconFrequencyWithCompletion (ESTUnsignedCompletionBlock completion);
+
+		[Export ("readBeaconPowerWithCompletion:")]
+		void ReadBeaconPowerWithCompletion (ESTUnsignedCompletionBlock completion);
+
+		[Export ("readBeaconBatteryWithCompletion:")]
+		void ReadBeaconBatteryWithCompletion (ESTUnsignedCompletionBlock completion);
+
+		[Export ("readBeaconFirmwareVersionWithCompletion:")]
+		void ReadBeaconFirmwareVersionWithCompletion (ESTStringCompletionBlock completion);
+
+		[Export ("readBeaconHardwareVersionWithCompletion:")]
+		void ReadBeaconHardwareVersionWithCompletion (ESTStringCompletionBlock completion);
+
+		[Export ("writeBeaconMajor:withCompletion:")]
+		void WriteBeaconMajor (short major, ESTUnsignedCompletionBlock completion);
+
+		[Export ("writeBeaconMinor:withCompletion:")]
+		void WriteBeaconMinor (short minor, ESTUnsignedCompletionBlock completion);
+
+		[Export ("writeBeaconFrequency:withCompletion:")]
+		void WriteBeaconFrequency (short frequency, ESTUnsignedCompletionBlock completion);
+
+		[Export ("writeBeaconPower:withCompletion:")]
+		void WriteBeaconPower (ESTBeaconPower power, ESTUnsignedCompletionBlock completion);
+
+		[Export ("updateBeaconFirmwareWithProgress:andCompletion:")]
+		void UpdateBeaconFirmwareWithProgress (ESTStringCompletionBlock progress, ESTCompletionBlock completion);
+	}
+
+	[Model, BaseType (typeof (NSObject))]
+	public partial interface ESTBeaconManagerDelegate {
+
+		[Export ("beaconManager:didRangeBeacons:inRegion:")]
+		void DidRangeBeacons (ESTBeaconManager manager, [Verify ("NSArray may be reliably typed, check the documentation", "/Users/wouter/Ontwikkel/Estimote iOS-SDK/EstimoteSDK/Headers/ESTBeaconManager.h", Line = 37)] NSObject [] beacons, ESTBeaconRegion region);
+
+		[Export ("beaconManager:rangingBeaconsDidFailForRegion:withError:")]
+		void RangingBeaconsDidFailForRegion (ESTBeaconManager manager, ESTBeaconRegion region, NSError error);
+
+		[Export ("beaconManager:monitoringDidFailForRegion:withError:")]
+		void MonitoringDidFailForRegion (ESTBeaconManager manager, ESTBeaconRegion region, NSError error);
+
+		[Export ("beaconManager:didEnterRegion:")]
+		void DidEnterRegion (ESTBeaconManager manager, ESTBeaconRegion region);
+
+		[Export ("beaconManager:didExitRegion:")]
+		void DidExitRegion (ESTBeaconManager manager, ESTBeaconRegion region);
+
+		[Export ("beaconManager:didDetermineState:forRegion:")]
+		void DidDetermineState (ESTBeaconManager manager, CLRegionState state, ESTBeaconRegion region);
+
+		[Export ("beaconManagerDidStartAdvertising:error:")]
+		void Error (ESTBeaconManager manager, NSError error);
+
+		[Export ("beaconManager:didDiscoverBeacons:inRegion:")]
+		void DidDiscoverBeacons (ESTBeaconManager manager, [Verify ("NSArray may be reliably typed, check the documentation", "/Users/wouter/Ontwikkel/Estimote iOS-SDK/EstimoteSDK/Headers/ESTBeaconManager.h", Line = 131)] NSObject [] beacons, ESTBeaconRegion region);
+
+		[Export ("beaconManager:didFailDiscoveryInRegion:")]
+		void DidFailDiscoveryInRegion (ESTBeaconManager manager, ESTBeaconRegion region);
+	}
+
+	[BaseType (typeof (NSObject))]
+	public partial interface ESTBeaconManager : CLLocationManagerDelegate {
+
+		[Export ("delegate", ArgumentSemantic.Assign)]
+		ESTBeaconManagerDelegate Delegate { get; set; }
+
+		[Export ("avoidUnknownStateBeacons")]
+		bool AvoidUnknownStateBeacons { get; set; }
+
+		[Export ("virtualBeaconRegion", ArgumentSemantic.Retain)]
+		ESTBeaconRegion VirtualBeaconRegion { get; set; }
+
+		[Export ("startRangingBeaconsInRegion:")]
+		void StartRangingBeaconsInRegion (ESTBeaconRegion region);
+
+		[Export ("startMonitoringForRegion:")]
+		void StartMonitoringForRegion (ESTBeaconRegion region);
+
+		[Export ("stopRangingBeaconsInRegion:")]
+		void StopRangingBeaconsInRegion (ESTBeaconRegion region);
+
+		[Export ("stopMonitoringForRegion:")]
+		void StopMonitoringForRegion (ESTBeaconRegion region);
+
+		[Export ("requestStateForRegion:")]
+		void RequestStateForRegion (ESTBeaconRegion region);
+
+		[Export ("startAdvertisingWithMajor:withMinor:withIdentifier:")]
+		void StartAdvertisingWithMajor (ESTBeaconMajorValue major, ESTBeaconMinorValue minor, string identifier);
+
+		[Export ("stopAdvertising")]
+		void StopAdvertising ();
+
+		[Export ("startEstimoteBeaconsDiscoveryForRegion:")]
+		void StartEstimoteBeaconsDiscoveryForRegion (ESTBeaconRegion region);
+
+		[Export ("stopEstimoteBeaconDiscovery")]
+		void StopEstimoteBeaconDiscovery ();
+	}
+
+	[BaseType (typeof (CLBeaconRegion))]
+	public partial interface ESTBeaconRegion {
+
+		[Export ("initRegionWithIdentifier:")]
+		IntPtr Constructor (string identifier);
+
+		[Export ("initRegionWithMajor:identifier:")]
+		IntPtr Constructor (ESTBeaconMajorValue major, string identifier);
+
+		[Export ("initRegionWithMajor:minor:identifier:")]
+		IntPtr Constructor (ESTBeaconMajorValue major, ESTBeaconMinorValue minor, string identifier);
+	}
+}

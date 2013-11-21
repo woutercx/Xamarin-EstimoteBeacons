@@ -1,0 +1,12 @@
+/Users/wouter/Ontwikkel/Estimote iOS-SDK/EstimoteSDK/Headers/ESTBeacon.h:78:1: warning: no 'assign', 'retain', or 'copy' attribute is specified - 'assign' is assumed [-Wobjc-property-no-attribute]
+@property (nonatomic)           id <ESTBeaconDelegate>  delegate;
+^
+/Users/wouter/Ontwikkel/Estimote iOS-SDK/EstimoteSDK/Headers/ESTBeacon.h:78:1: warning: default property attribute 'assign' not appropriate for non-GC object [-Wobjc-property-no-attribute]
+2 warnings generated.
+In file included from /Users/wouter/Ontwikkel/Estimote iOS-SDK/EstimoteSDK/Headers/ESTBeaconManager.h:13:
+/Users/wouter/Ontwikkel/Estimote iOS-SDK/EstimoteSDK/Headers/ESTBeacon.h:78:1: warning: no 'assign', 'retain', or 'copy' attribute is specified - 'assign' is assumed [-Wobjc-property-no-attribute]
+@property (nonatomic)           id <ESTBeaconDelegate>  delegate;
+^
+/Users/wouter/Ontwikkel/Estimote iOS-SDK/EstimoteSDK/Headers/ESTBeacon.h:78:1: warning: default property attribute 'assign' not appropriate for non-GC object [-Wobjc-property-no-attribute]
+2 warnings generated.
+

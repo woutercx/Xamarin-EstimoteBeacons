@@ -1,0 +1,6 @@
+obj/Debug/ios/ObjCRuntime/Messaging.g.cs
+obj/Debug/ios/EstimoteXamarin/ESTBeaconDelegate.g.cs
+obj/Debug/ios/EstimoteXamarin/ESTBeacon.g.cs
+obj/Debug/ios/EstimoteXamarin/ESTBeaconRegion.g.cs
+obj/Debug/ios/EstimoteXamarin/ESTBeaconManagerDelegate.g.cs
+obj/Debug/ios/EstimoteXamarin/ESTBeaconManager.g.cs
