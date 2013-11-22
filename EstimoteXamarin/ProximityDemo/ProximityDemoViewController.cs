@@ -32,7 +32,6 @@ namespace ProximityDemo
 					if(selectedBeacon == null)
 					{
 						// initialy pick closest beacon
-						//new NSString(nsArr.ValueAt(1));
 						selectedBeacon = (ESTBeacon)beacons.GetValue(0);
 					}
 					else
@@ -51,15 +50,14 @@ namespace ProximityDemo
 
 					// beacon array is sorted based on distance
 					// closest beacon is the first one
-
-					string labelTextStr = String.Format("Beacon: {0} Major: {1}, Minor: {2}\nRegion: ", 
+					string labelTextStr = String.Format("Beacon: {0} \nMajor: {1}, Minor: {2}\nRSSI: {3}\nRegion: ", 
 						selectedBeacon.Ibeacon.ProximityUuid.AsString(),
 						selectedBeacon.Ibeacon.Major.UInt16Value,
-						selectedBeacon.Ibeacon.Minor.UInt16Value
+						selectedBeacon.Ibeacon.Minor.UInt16Value,
+						selectedBeacon.Ibeacon.Rssi
 						);
 
 					// calculate and set new y position
-
 					switch(selectedBeacon.Ibeacon.Proximity)
 					{
 						case CLProximity.Unknown:
@@ -100,7 +98,6 @@ namespace ProximityDemo
 
 			estBeaconManager = new ESTBeaconManager();
 
-			//??
 			estBeaconManager.Delegate = myBeaconManager;
 			estBeaconManager.AvoidUnknownStateBeacons = true;
 
