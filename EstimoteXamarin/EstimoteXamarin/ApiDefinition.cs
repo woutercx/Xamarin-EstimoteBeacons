@@ -170,11 +170,15 @@ namespace EstimoteXamarin
 		[Export ("beaconManager:didFailDiscoveryInRegion:")]
 		void DidFailDiscoveryInRegion (ESTBeaconManager manager, ESTBeaconRegion region);
 	}
-	
-	[BaseType (typeof (NSObject))]
-	//TODO: Make it implement CLLocationManagerDelegate 
-	public partial interface ESTBeaconManager //: CLLocationManagerDelegate
+
+	//TODO: I hope this is the correct implementation for the CLLocationManagerDelegate
+	//http://fossies.org/linux/misc/mono-sources/monodevelop/monodevelop-3.1.1.tar.gz:a/monodevelop-3.1.1/external/maccore/src/corelocation.cs
+	//[BaseType (typeof (NSObject), Delegates=new string [] {"WeakDelegate"}, Events=new Type [] {typeof (CLLocationManagerDelegate)})]
+	[BaseType (typeof (CLLocationManagerDelegate))]
+	public partial interface ESTBeaconManager
 	{
+//		[Wrap ("WeakDelegate")]
+//		CLLocationManagerDelegate Delegate { get; set;  }
 
 		[Export ("delegate", ArgumentSemantic.Assign)]
 		ESTBeaconManagerDelegate Delegate { get; set; }
@@ -213,5 +217,16 @@ namespace EstimoteXamarin
 
 		[Export ("stopEstimoteBeaconDiscovery")]
 		void StopEstimoteBeaconDiscovery ();
+
+		//TODO: Is this necessary for all methods?
+
+//		#region CLLocationManagerDelegate implementation
+//		//
+//
+//		[Obsolete ("Deprecated in iOS 6.0")]
+//		[Export ("didUpdateToLocation:fromLocation:"), EventArgs ("CLLocationUpdated")]
+//		void UpdatedLocation (CLLocationManager  manager, CLLocation newLocation, CLLocation oldLocation);
+//
+//		#endregion CLLocationManagerDelegate implementation
 	}
 }

@@ -35,6 +35,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="monotouch" />
+    <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
@@ -59,5 +60,6 @@
     <None Include="ApiDefinition.cs.old.txt" />
     <None Include="ObjectiveSharpieOutput.txt" />
     <None Include="Objective Sharpie warnings.txt" />
+    <None Include="Entitlements.plist" />
   </ItemGroup>
 </Project>
