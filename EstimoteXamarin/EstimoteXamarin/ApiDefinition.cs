@@ -8,14 +8,6 @@ using MonoTouch.CoreLocation;
 
 namespace EstimoteXamarin
 {
-	//BlockCallback:
-	//http://docs.xamarin.com/guides/ios/advanced_topics/binding_objective-c/binding_types_reference_guide/
-	//Example:
-	//Objective C:
-	//https://github.com/couchbase/couchbase-lite-ios/blob/580c5f65ebda159ce5d0ce1f75adc16955a2a6ff/Source/API/CBLView.h
-	//Translated to C#:
-	//https://github.com/mono/monotouch-bindings/blob/23eaf5ff60accf6752e7f5945e1d67bc338dffe7/Couchbase/binding/ApiDefinition.cs
-
 	[Model, BaseType (typeof (NSObject))]
 	public partial interface ESTBeaconDelegate {
 
@@ -171,15 +163,9 @@ namespace EstimoteXamarin
 		void DidFailDiscoveryInRegion (ESTBeaconManager manager, ESTBeaconRegion region);
 	}
 
-	//TODO: I hope this is the correct implementation for the CLLocationManagerDelegate
-	//http://fossies.org/linux/misc/mono-sources/monodevelop/monodevelop-3.1.1.tar.gz:a/monodevelop-3.1.1/external/maccore/src/corelocation.cs
-	//[BaseType (typeof (NSObject), Delegates=new string [] {"WeakDelegate"}, Events=new Type [] {typeof (CLLocationManagerDelegate)})]
 	[BaseType (typeof (CLLocationManagerDelegate))]
 	public partial interface ESTBeaconManager
 	{
-//		[Wrap ("WeakDelegate")]
-//		CLLocationManagerDelegate Delegate { get; set;  }
-
 		[Export ("delegate", ArgumentSemantic.Assign)]
 		ESTBeaconManagerDelegate Delegate { get; set; }
 
@@ -217,16 +203,5 @@ namespace EstimoteXamarin
 
 		[Export ("stopEstimoteBeaconDiscovery")]
 		void StopEstimoteBeaconDiscovery ();
-
-		//TODO: Is this necessary for all methods?
-
-//		#region CLLocationManagerDelegate implementation
-//		//
-//
-//		[Obsolete ("Deprecated in iOS 6.0")]
-//		[Export ("didUpdateToLocation:fromLocation:"), EventArgs ("CLLocationUpdated")]
-//		void UpdatedLocation (CLLocationManager  manager, CLLocation newLocation, CLLocation oldLocation);
-//
-//		#endregion CLLocationManagerDelegate implementation
 	}
 }

@@ -1,20 +1,17 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.Wouter's iPhone 4s violet" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="ProximityDemo/ProximityDemoViewController.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="EstimoteXamarin/ApiDefinition.cs">
     <Files>
-      <File FileName="EstimoteXamarin/ApiDefinition.cs" Line="148" Column="3" />
-      <File FileName="ProximityDemo/ProximityDemoViewController.cs" Line="34" Column="3" />
-      <File FileName="EstimoteXamarin/StructsAndEnums.cs" Line="23" Column="1" />
+      <File FileName="ProximityDemo/ProximityDemoViewController.cs" Line="17" Column="3" />
+      <File FileName="EstimoteXamarin/ApiDefinition.cs" Line="12" Column="46" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Node name="EstimoteXamarin" expanded="True">
-            <Node name="References" expanded="True" />
+            <Node name="ApiDefinition.cs" selected="True" />
           </Node>
-          <Node name="ProximityDemo" expanded="True" selected="True">
-            <Node name="References" expanded="True" />
-          </Node>
+          <Node name="ProximityDemo" expanded="True" />
         </State>
       </Pad>
       <Pad Id="ClassPad">
