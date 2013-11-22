@@ -7,3 +7,4 @@ Estimote Beacons Xamarin SDK wrapper
 - *NOTE* This is work in progress, a beta, no guarantees, **Everything may change!**
 - *NOTE* This is my first encounter with Xamarin wrappers around Objective-C libraries. Therefore, code may need fixes, however ATM it's just a proof of concept.
 - I will appreciate all input, feedback, and especially contributions!
+ 
