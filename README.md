@@ -18,6 +18,11 @@ For the technical specifications about the Estimote beacon see http://estimote.c
 
 This is my personal project, I'm not affiliated with Estimote in any way.
 
+Credits
+=======
+Xamarin-EstimoteBeacons is the Xamarin.iOS-capable version of [EstimoteSDK](https://github.com/Estimote/iOS-SDK/tree/master/EstimoteSDK).
+Estimote certainly deserves all the credit as all I have done is create the Xamarin.iOS binding for the library.
+
 License
 =======
 
