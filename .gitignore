@@ -14,3 +14,7 @@
 [Dd]ebug*/
 [Rr]elease*/
 *.log
+
+# Xamarin files #
+######################
+*.userprefs
