@@ -7,8 +7,6 @@ Estimote Beacons are small, wireless sensors from http://estimote.com that use a
 You can think about the beacon as a small lighthouse tower that's installed in a fixed location and broadcasts its presence to all the ships (smartphones) around.
 The nearby smartphones can communicate with them using an API they’ve developed to make it easy for developers to add micro-location features to their mobile apps.
 
-it uses a new Bluetooth chip that relatively continuously transmits radio signals that your phone picks up and then you get hyper context specific alerts. And it uses almost no power!
-
 For the technical specifications about the Estimote beacon see http://estimote.com/api/index.html
 
 
