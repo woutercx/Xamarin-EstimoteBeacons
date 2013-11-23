@@ -7,7 +7,7 @@ Estimote Beacons are small, wireless sensors from http://estimote.com that use a
 You can think about the beacon as a small lighthouse tower that's installed in a fixed location and broadcasts its presence to all the ships (smartphones) around.
 The nearby smartphones can communicate with them using an API they’ve developed. This makes it easy for developers to add micro-location features to their mobile apps.
 
-For the technical specifications about the Estimote beacon see http://estimote.com/api/index.html
+For the technical specifications about the Estimote beacons see http://estimote.com/api/index.html
 
 
 - **UPDATE** 2013-11-22 Created a working Proximity demo that uses the wrapper by translating the ProximityDemo from Estimote: https://github.com/Estimote/iOS-SDK
