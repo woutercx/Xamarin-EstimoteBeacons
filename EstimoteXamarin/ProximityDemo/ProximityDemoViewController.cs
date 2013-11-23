@@ -5,6 +5,8 @@ using MonoTouch.UIKit;
 using EstimoteXamarin;
 using MonoTouch.CoreLocation;
 
+//The ProximityDemo from https://github.com/Estimote/iOS-SDK/tree/master/ProximityDemo
+//translated to C#. It makes use of the Estimote SDK wrapper.
 namespace ProximityDemo
 {
 	public partial class ProximityDemoViewController : UIViewController

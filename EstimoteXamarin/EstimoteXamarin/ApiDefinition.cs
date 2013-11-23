@@ -6,6 +6,11 @@ using MonoTouch.UIKit;
 using MonoTouch.CoreBluetooth;
 using MonoTouch.CoreLocation;
 
+//Wrapper around the libEstimoteSDK7.a
+//https://github.com/Estimote/iOS-SDK/tree/master/EstimoteSDK
+//
+//TODO: Test the bindings using the info http://blog.xamarin.com/producing-better-bindings-for-xamarin.ios-and-xamarin.mac/
+//ProximityDemo proves the bindings are probably working, but there are no tests yet.
 namespace EstimoteXamarin
 {
 	[Model, BaseType (typeof (NSObject))]
@@ -147,6 +152,12 @@ namespace EstimoteXamarin
 		[Export ("beaconManager:didEnterRegion:")]
 		void DidEnterRegion (ESTBeaconManager manager, ESTBeaconRegion region);
 
+		//Beware! There is a bug in Apple's CLLocation API (that is used under the hood by the Estimote library).
+		//http://beekn.net/2013/11/apple-ibeacon-bugs-complicate-bluetooth-le-experience/
+		//Your app is likely to lose range of beacons for brief instances and will briefly report didExitRegion before quickly returning to being in range.
+		//Your app will sometimes make the wrong ‘guess’ as to which proximity region it’s in before eventually correcting itself. It will sometimes 
+		//report Proximity == near when you’re “immediate” or “immediate” when you’re “near” and then flip itself back to the correct value.
+		//To solve this would require some sort of hack on your side or a fix from Apple.
 		[Export ("beaconManager:didExitRegion:")]
 		void DidExitRegion (ESTBeaconManager manager, ESTBeaconRegion region);
 
