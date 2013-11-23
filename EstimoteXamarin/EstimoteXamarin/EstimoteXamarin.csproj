@@ -57,7 +57,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="ApiDefinition.cs.old.txt" />
     <None Include="ObjectiveSharpieOutput.txt" />
     <None Include="Objective Sharpie warnings.txt" />
     <None Include="Entitlements.plist" />
