@@ -6,7 +6,8 @@ using MonoTouch.UIKit;
 using MonoTouch.CoreBluetooth;
 using MonoTouch.CoreLocation;
 
-//Wrapper around the libEstimoteSDK7.a
+//Wrapper around the EstimoteSDK for iOS 7 (libEstimoteSDK7.a) library
+//The latest version of the library can always be found here:
 //https://github.com/Estimote/iOS-SDK/tree/master/EstimoteSDK
 //
 //TODO: Test the bindings using the info http://blog.xamarin.com/producing-better-bindings-for-xamarin.ios-and-xamarin.mac/
@@ -56,7 +57,7 @@ namespace EstimoteXamarin
 	/// encountered beacons to its associated delegate object. You can use the information in a beacon 
 	/// object to identify which beacon was encountered.
 	/// ESTBeacon class contains basic Apple CLBeacon object reference as well as some additional functionality.
-	/// It allows to  connect with Estimote beacon to read / write its characteristics.
+	/// It allows to connect with Estimote beacon to read / write its characteristics.
 	/// </summary>
 	[BaseType (typeof (NSObject))]
 	public partial interface ESTBeacon {
@@ -64,11 +65,12 @@ namespace EstimoteXamarin
 		[Export ("firmwareState")]
 		ESTBeaconFirmwareState FirmwareState { get; set; }
 
+		//The ESTBeaconManager object reports encountered beacons to this associated delegate object.
 		[Export ("delegate")]
 		ESTBeaconDelegate Delegate { get; set; }
 
 		///////////////////////////////////////////////////////
-		// bluetooth beacon available when used with startEstimoteBeaconsDiscoveryForRegion:
+		// Bluetooth beacon available when used with startEstimoteBeaconsDiscoveryForRegion:
 		[Export ("peripheral", ArgumentSemantic.Retain)]
 		CBPeripheral Peripheral { get; set; }
 
@@ -88,7 +90,7 @@ namespace EstimoteXamarin
 		NSNumber Rssi { get; set; }
 
 		/////////////////////////////////////////////////////
-		// properties filled when read characteristic
+		// Properties filled when characteristics are read
 		[Export ("power", ArgumentSemantic.Retain)]
 		NSNumber Power { get; set; }
 
@@ -105,7 +107,7 @@ namespace EstimoteXamarin
 		string FirmwareVersion { get; set; }
 
 		/////////////////////////////////////////////////////
-		// core location properties
+		// Core location properties
 		[Export ("ibeacon", ArgumentSemantic.Retain)]
 		CLBeacon Ibeacon { get; set; }
 
@@ -229,28 +231,28 @@ namespace EstimoteXamarin
 	public partial interface ESTBeaconRegion {
 
 		/// <summary>
-		/// Initialize a Estimote beacon region. Major and minor values will be wildcarded.
+		/// Initialize an Estimote beacon region. Major and minor values will be wildcarded.
 		/// </summary>
 		/// <param name="identifier">Region identifier</param>
 		[Export ("initRegionWithIdentifier:")]
 		IntPtr Constructor (string identifier);
 
 		/// <summary>
-		/// Initialize a Estimote beacon region with major value. Minor value will be wildcarded.
+		/// Initialize an Estimote beacon region with major value. Minor value will be wildcarded.
 		/// </summary>
-		/// <param name="ESTBeaconMajorValue">minor location value</param>
+		/// <param name="major">Major location value</param>
 		/// <param name="identifier">Region identifier</param>
 		[Export ("initRegionWithMajor:identifier:")]
-		IntPtr Constructor (ushort ESTBeaconMajorValue, string identifier);
+		IntPtr Constructor (ushort major, string identifier);
 
 		/// <summary>
 		/// Initialize a Estimote beacon region identified by a major and minor values.
 		/// </summary>
-		/// <param name="ESTBeaconMajorValue">major location value. Represents the most significant value in a beacon.</param>
-		/// <param name="ESTBeaconMinorValue">minor location value. Represents the least significant value in a beacon.</param>
+		/// <param name="major">Major location value. Represents the most significant value in a beacon.</param>
+		/// <param name="minor">Minor location value. Represents the least significant value in a beacon.</param>
 		/// <param name="identifier">Region identifier</param>
 		[Export ("initRegionWithMajor:minor:identifier:")]
-		IntPtr Constructor (ushort ESTBeaconMajorValue, ushort ESTBeaconMinorValue, string identifier);
+		IntPtr Constructor (ushort major, ushort minor, string identifier);
 	}
 	
 	/// <summary>
@@ -271,7 +273,7 @@ namespace EstimoteXamarin
 		void DidRangeBeacons (ESTBeaconManager manager, NSArray [] beacons, ESTBeaconRegion region);
 
 		/// <summary>
-		/// Delegate method invoked wehen ranging fails for particular region. Related NSError object passed.
+		/// Delegate method invoked when ranging fails for particular region. Related NSError object passed.
 		/// </summary>
 		/// <param name="manager">Estimote beacon manager</param>
 		/// <param name="region">Estimote beacon region</param>
@@ -280,7 +282,7 @@ namespace EstimoteXamarin
 		void RangingBeaconsDidFailForRegion (ESTBeaconManager manager, ESTBeaconRegion region, NSError error);
 
 		/// <summary>
-		/// Delegate method invoked wehen monitoring fails for particular region. Related NSError object passed.
+		/// Delegate method invoked when monitoring fails for particular region. Related NSError object passed.
 		/// </summary>
 		/// <param name="manager">Estimote beacon manager</param>
 		/// <param name="region">Estimote beacon region</param>
@@ -411,7 +413,7 @@ namespace EstimoteXamarin
 		void RequestStateForRegion (ESTBeaconRegion region);
 
 		/// <summary>
-		/// Allows to turn device into virtual estimote beacon.
+		/// Allows to turn iPhone device into virtual estimote beacon.
 		/// </summary>
 		/// <param name="major">Major beacon value</param>
 		/// <param name="minor">Minor beacon value</param>
@@ -420,7 +422,7 @@ namespace EstimoteXamarin
 		void StartAdvertisingWithMajor (ushort major, ushort minor, string identifier);
 
 		/// <summary>
-		/// Stop beacon advertising.
+		/// Stop advertising the iPhone device as virtual estimote beacon.
 		/// </summary>
 		[Export ("stopAdvertising")]
 		void StopAdvertising ();
