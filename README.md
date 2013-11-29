@@ -10,10 +10,8 @@ The nearby smartphones can communicate with them using an API they’ve develope
 For the technical specifications about the Estimote beacons see http://estimote.com/api/index.html
 
 
-- **UPDATE** 2013-11-22 Created a working Proximity demo that uses the wrapper by translating the ProximityDemo from Estimote: https://github.com/Estimote/iOS-SDK
+- There is a working Proximity demo that uses the wrapper. This is the translation of the ProximityDemo (Objective C) from Estimote: https://github.com/Estimote/iOS-SDK
 
-- *NOTE* This is work in progress, a beta, no guarantees, **Everything may change!**
-- *NOTE* This is my first encounter with Xamarin wrappers around Objective-C libraries. Therefore, code may need fixes, however ATM it's just a proof of concept.
 - I will appreciate all input, feedback, and especially contributions!
 
 This is my personal project, I'm not affiliated with Estimote in any way.
