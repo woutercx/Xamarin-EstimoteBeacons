@@ -1,6 +1,10 @@
 Estimote Beacons Xamarin SDK wrapper
 =======================
 
+- **UPDATE** 2013-12-05 The most up-to-date version of this wrapper is now: https://github.com/woutercx/monotouch-bindings
+I've done a pull request to add this to the Monotouch bindings: https://github.com/mono/monotouch-bindings
+After this is added to github.com/mono/monotouch-bindings I will remove github.com/woutercx/Xamarin-EstimoteBeacons and github.com/woutercx/monotouch-bindings.
+
 A wrapper around the Estimote iOS SDK ( https://github.com/Estimote/iOS-SDK ).
 
 Estimote Beacons are small, wireless sensors from http://estimote.com that use a new Bluetooth low energy (BLE) chip and continually transmit radio signals that your phone can pick up.
