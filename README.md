@@ -4,6 +4,8 @@ Estimote Beacons Xamarin SDK wrapper
 - **UPDATE** 2013-12-05 The most up-to-date version of this wrapper is now: https://github.com/mono/monotouch-bindings/tree/master/Estimote
 My code (an improved version of Xamarin-EstimoteBeacons) was merged there.
 
+Here's their blog : http://blog.xamarin.com/adding-real-world-context-with-estimote-beacons-and-stickers/ 
+and their components page: http://components.xamarin.com/view/estimotesdkios
 
 A wrapper around the Estimote iOS SDK ( https://github.com/Estimote/iOS-SDK ).
 
